@@ -3,7 +3,7 @@ import "firebase/auth";
 import "firebase/storage";
 import "firebase/database";
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyC_0xjo54L3LvipgK-cuF6y2jUUQPKnkBg",
   authDomain: "admin-amr.firebaseapp.com",
   databaseURL:
