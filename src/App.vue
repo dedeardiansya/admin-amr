@@ -7,16 +7,18 @@
       <div class="card card-body text-center">
         <auth :user="user" />
       </div>
-      <hr />
-      <navigation />
-      <hr />
-      <home />
-      <hr />
-      <about />
-      <hr />
-      <contact />
-      <hr />
-      <gallery />
+      <div v-if="user && user.email === 'amrullahsajak300@gmail.com'">
+        <hr />
+        <navigation />
+        <hr />
+        <home />
+        <hr />
+        <about />
+        <hr />
+        <contact />
+        <hr />
+        <gallery />
+      </div>
     </div>
   </div>
 </template>
