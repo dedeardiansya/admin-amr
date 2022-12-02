@@ -1,28 +1,53 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="text-center py-3 border-bottom">
+      <h3>ADMIN</h3>
+    </div>
+    <div class="container py-3">
+      <div class="card card-body text-center">
+        <auth :user="user" />
+      </div>
+      <hr />
+      <navigation />
+      <hr />
+      <home />
+      <hr />
+      <about />
+      <hr />
+      <contact />
+      <hr />
+      <gallery />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { getAuth } from "firebase/auth";
+import Auth from "./components/Auth";
+import Navigation from "./components/Navigation";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Gallery from "./components/Gallery";
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    Auth,
+    Navigation,
+    Home,
+    About,
+    Contact,
+    Gallery,
+  },
+  data() {
+    return {
+      user: null,
+    };
+  },
+  created() {
+    const auth = getAuth();
+    auth.onAuthStateChanged((user) => {
+      this.user = user ?? null;
+    });
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
